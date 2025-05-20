@@ -1,63 +1,26 @@
 package com.example.pricecomparator.model;
 
 import jakarta.persistence.*;
+import lombok.*;
+
+import java.math.BigDecimal;
 
 @Entity
 @Table(name = "product")
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
 public class Product {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    @Column(name = "external_id", length = 20)
+    private String externalId;    // matches CSV’s product_id
 
     @Column(nullable = false)
-    private String name;
+    private String name;          // product_name
 
-    private String brand;
-    private String category;
-
-    public Product(Long id, String name, String brand, String category) {
-        this.id = id;
-        this.name = name;
-        this.brand = brand;
-        this.category = category;
-    }
-
-    public Product() {
-    }
-
-    public Long getId() {
-        return this.id;
-    }
-
-    public String getName() {
-        return this.name;
-    }
-
-    public String getBrand() {
-        return this.brand;
-    }
-
-    public String getCategory() {
-        return this.category;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public void setBrand(String brand) {
-        this.brand = brand;
-    }
-
-    public void setCategory(String category) {
-        this.category = category;
-    }
-
-    public String toString() {
-        return "Product(id=" + this.getId() + ", name=" + this.getName() + ", brand=" + this.getBrand() + ", category=" + this.getCategory() + ")";
-    }
+    private String category;      // product_category
+    private String brand;         // brand
+    private BigDecimal packageQuantity; // package_quantity
+    private String packageUnit;   // package_unit
 }

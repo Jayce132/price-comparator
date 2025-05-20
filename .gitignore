@@ -1,33 +1,70 @@
-HELP.md
+# Operating System Files
+# macOS Finder
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Thumbnails
+._*
+
+# External disks
+.Spotlight-V100
+.Trashes
+
+# Logs and Databases
+*.log
+*.sqlite
+
+# Compiled Files & Packages
+# Java class files
+*.class
+
+# Archive/package formats
+*.jar
+*.war
+*.ear
+*.zip
+*.tar.gz
+*.rar
+
+# Build Tool Folders
+## Gradle
+.gradle/
+build/
+!**/src/main/**/build/
+!**/src/test/**/build/
+
+## Maven
 target/
 !.mvn/wrapper/maven-wrapper.jar
 !**/src/main/**/target/
 !**/src/test/**/target/
 
-### STS ###
+# IDE & Editor Settings
+## IntelliJ IDEA
+.idea/
+*.iml
+*.iws
+*.ipr
+
+## Spring Tool Suite (STS)
 .apt_generated
 .classpath
 .factorypath
 .project
-.settings
+.settings/
 .springBeans
 .sts4-cache
 
-### IntelliJ IDEA ###
-.idea
-*.iws
-*.iml
-*.ipr
-
-### NetBeans ###
+## NetBeans
 /nbproject/private/
 /nbbuild/
 /dist/
 /nbdist/
 /.nb-gradle/
-build/
-!**/src/main/**/build/
-!**/src/test/**/build/
 
-### VS Code ###
+## VS Code
 .vscode/
+
+# Miscellaneous
+HELP.md

@@ -1,26 +1,19 @@
 package com.example.pricecomparator;
 
-import com.example.pricecomparator.model.Product;
-import com.example.pricecomparator.repository.ProductRepository;
+import com.example.pricecomparator.service.CsvIngestionService;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
 @Component
 public class DataLoader implements CommandLineRunner {
-    private final ProductRepository repo;
+    private final CsvIngestionService csvService;
 
-    public DataLoader(ProductRepository repo) {
-        this.repo = repo;
+    public DataLoader(CsvIngestionService csvService) {
+        this.csvService = csvService;
     }
 
     @Override
-    public void run(String... args) {
-        Product p = new Product();
-        p.setName("Test Product");
-        p.setBrand("Acme");
-        p.setCategory("Gadgets");
-        repo.save(p);
-
-        repo.findAll().forEach(System.out::println);
+    public void run(String... args) throws Exception {
+        csvService.ingestAll();
     }
 }
